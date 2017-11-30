@@ -3,7 +3,9 @@ module Web::Controllers::Books
     include Web::Action
 
     def call(params)
-      self.body = 'OK'
+      BookRepository.new.create(params[:book])
+
+      redirect_to '/books'
     end
   end
 end
